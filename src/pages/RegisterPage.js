@@ -9,7 +9,7 @@ import useResponsive from '../hooks/useResponsive';
 import Logo from '../components/logo';
 import Iconify from '../components/iconify';
 // sections
-import { LoginForm } from '../sections/auth/login';
+import { RegisterForm } from '../sections/auth/login';
 
 // ----------------------------------------------------------------------
 
@@ -41,14 +41,14 @@ const StyledContent = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const mdUp = useResponsive('up', 'md');
   const navigate = useNavigate();
 
   return (
     <>
       <Helmet>
-        <title> Login | Minimal UI </title>
+        <title> Register | Minimal UI </title>
       </Helmet>
 
       <StyledRoot>
@@ -72,12 +72,12 @@ export default function LoginPage() {
         <Container maxWidth="sm">
           <StyledContent>
             <Typography variant="h4" gutterBottom>
-              Sign in to Minimal
+              Register at least
             </Typography>
 
             <Typography variant="body2" sx={{ mb: 5 }}>
-              Don’t have an account? {''}
-              <Link variant="subtitle2" onClick={() => { navigate('/register', { replace: true });}}  >Get started</Link>
+              Already have an account?
+              <Link variant="subtitle2" onClick={() => { navigate('/login', { replace: true });}}> Login</Link>
             </Typography>
 
             <Stack direction="row" spacing={2}>
@@ -99,8 +99,7 @@ export default function LoginPage() {
                 OR
               </Typography>
             </Divider>
-
-            <LoginForm />
+            <RegisterForm />
           </StyledContent>
         </Container>
       </StyledRoot>
